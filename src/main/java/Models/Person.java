@@ -7,6 +7,7 @@ import org.mongodb.morphia.annotations.Id;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 @Entity("person")
 public class Person {
@@ -54,5 +55,26 @@ public class Person {
     public void addAddress(Address address)
     {
         this.addresses.add(address);
+    }
+
+    public String getAllAddress()
+    {
+        String addresses = "";
+        Iterator<Address> addressIterator = this.addresses.iterator();
+        while (addressIterator.hasNext())
+        {
+
+            addresses += "{ "+ addressIterator.next().toString()+" }, ";
+        }
+        return  addresses;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", addresses = [" + this.getAllAddress() +" ]"+
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package Services;
 
 import Models.Address;
+import Models.Article;
 import Models.Person;
 import com.mongodb.MongoClient;
 import org.mongodb.morphia.Datastore;
@@ -15,6 +16,7 @@ public class MorphiaService {
     {
         this.morphia = new Morphia();
         this.mongo = new MongoClient();
+        morphia.map(Article.class);
         morphia.map(Person.class).map(Address.class);
     }
 
