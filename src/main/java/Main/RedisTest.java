@@ -2,7 +2,7 @@ package Main;
 
 import redis.clients.jedis.Jedis;
 
-public class MainRedisTest {
+public class RedisTest {
 
     public static void main( String[] args ) throws InterruptedException {
 //        example1();
